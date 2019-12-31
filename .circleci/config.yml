@@ -6,6 +6,7 @@ jobs:
       - image: circleci/node:13.5
     steps:
       - checkout
+      # Build #######################################################
       - restore_cache:
           key: cache-{{ checksum "yarn.lock" }}
       - run:
@@ -15,6 +16,10 @@ jobs:
           key: cache-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
+      # Deploy ######################################################
+      - run:
+          name: yarn build
+          command: yarn build
       - run:
           name: firebase deploy
           command: node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
