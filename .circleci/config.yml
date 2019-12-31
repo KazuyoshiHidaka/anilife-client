@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/anilife-client
     docker:
-      - image: circleci/node:chakracore-browsers-legacy
+      - image: circleci/node:10.7
     steps:
       - checkout
       - restore_cache:
@@ -17,4 +17,4 @@ jobs:
             - node_modules
       - run:
           name: firebase deploy
-          command: node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
+          command: node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
