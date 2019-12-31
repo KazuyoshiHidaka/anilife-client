@@ -15,22 +15,6 @@ jobs:
           key: cache-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
-  deploy:
-    docker:
-      - image: circleci/node:chakracore-browsers-legacy
-    steps:
-      - checkout
       - run:
-          name: firebase deploy --token $FIREBASE_TOKEN
-          command: node_modules/.bin/firebase deploy
-
-workflows:
-  build_deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+          name: firebase deploy
+          command: node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
