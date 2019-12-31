@@ -1,0 +1,36 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/anilife-client
+    docker:
+      - image: circleci/node:chakracore-browsers-legacy
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: install packages
+          command: yarn
+      - save_cache:
+          key: cache-{{ chacksum "yarn.lock" }}
+          paths:
+            - node_modules
+  deploy:
+    docker:
+      - image: circleci/node:chakracore-browsers-legacy
+    steps:
+      - checkout
+      - run:
+          name: firebase deploy
+          command: node_modules/.bin/firebase deploy
+
+workflows:
+  build_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
