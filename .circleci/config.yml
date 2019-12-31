@@ -12,9 +12,10 @@ jobs:
           name: install packages
           command: yarn
       - save_cache:
-          key: cache-{{ chacksum "yarn.lock" }}
+          key: cache-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
+      - run: yarn test
   deploy:
     docker:
       - image: circleci/node:chakracore-browsers-legacy
