@@ -1,19 +1,19 @@
 import React from "react";
 import "./App.css";
 import SearchAppBar from "./component/searchAppBar";
-import { ThemeProvider, Container } from "@material-ui/core";
-import { theme } from "./theme";
-import AnimesIndex from "./component/index_page/animesIndex";
+import { ThemeProvider, Container, Grid } from "@material-ui/core";
+import Theme from "./theme";
+import AnimesIndex from "./component/index/animesIndex";
 
-function App() {
+export default () => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={Theme}>
       <SearchAppBar />
-      <Container>
-        <AnimesIndex />
-      </Container>
+      <Grid container justify="center">
+        <Grid xs={8}>
+          <AnimesIndex />
+        </Grid>
+      </Grid>
     </ThemeProvider>
   );
-}
-
-export default App;
+};

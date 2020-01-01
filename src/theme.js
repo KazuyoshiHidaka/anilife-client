@@ -1,7 +1,12 @@
 import { createMuiTheme } from "@material-ui/core";
 
-export const theme = createMuiTheme({
+export default createMuiTheme({
   palette: {
     type: "dark"
+  },
+  typography: {
+    animeCopyright: {
+      fontSize: "0.5rem"
+    }
   }
 });
