@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  makeStyles,
-  Typography,
-  ButtonBase,
-  CardActionArea,
-  Card,
-  CardMedia,
-  CardContent
-} from "@material-ui/core";
+import { makeStyles, Typography, ButtonBase } from "@material-ui/core";
 
 // SAMPLE DATA
 const anime = {
