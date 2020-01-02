@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import SearchAppBar from "./component/searchAppBar";
+import { ThemeProvider, Grid } from "@material-ui/core";
+import Theme from "./theme";
+import AnimesIndex from "./component/index/animesIndex";
 
-function App() {
+export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={Theme}>
+      <SearchAppBar />
+      <Grid container justify="center">
+        <Grid xs={8} sm={4} md={3} lg={2}>
+          <AnimesIndex />
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
-}
-
-export default App;
+};
