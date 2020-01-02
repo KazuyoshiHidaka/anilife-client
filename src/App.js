@@ -10,7 +10,7 @@ export default () => {
     <ThemeProvider theme={Theme}>
       <SearchAppBar />
       <Grid container justify="center">
-        <Grid xs={8} sm={4} md={3} lg={2}>
+        <Grid item xs={8} sm={4} md={3} lg={2}>
           <AnimesIndex />
         </Grid>
       </Grid>
