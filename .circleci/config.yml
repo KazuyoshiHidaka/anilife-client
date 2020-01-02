@@ -32,6 +32,7 @@ jobs:
     executor: executor
     steps:
       - checkout
+      - node_modules
       - run:
           name: yarn build
           command: yarn build
