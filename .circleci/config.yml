@@ -1,12 +1,8 @@
 version: 2.1
-jobs:
-  build:
-    working_directory: ~/anilife-client
-    docker:
-      - image: circleci/node:13.5
+
+commands:
+  node_modules:
     steps:
-      - checkout
-      # Build #######################################################
       - restore_cache:
           key: cache-{{ checksum "yarn.lock" }}
       - run:
@@ -16,10 +12,42 @@ jobs:
           key: cache-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
-      # Deploy ######################################################
+
+executors:
+  executor:
+    docker:
+      - image: circleci/node:13.5
+    working_directory: ~/anilife-client
+
+jobs:
+  build:
+    executor: executor
+    steps:
+      - checkout
+      - node_modules
+      - run:
+          name: test
+          command: yarn test
+  deploy:
+    executor: executor
+    steps:
+      - checkout
       - run:
           name: yarn build
           command: yarn build
       - run:
           name: firebase deploy
           command: node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
+
+workflows:
+  version: 2
+  ci_cd:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
