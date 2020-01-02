@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {makeStyles, Typography} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,14 +16,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Anime() {
+export default function Anime(props) {
   const classes = useStyles();
+  const {image, title, copyright} = props;
 
   return (
     <>
-      <img className={classes.image} src={anime.image.src} alt={anime.title} />
+      <img className={classes.image} src={image} alt={title} />
       <Typography className={classes.copyright} align="left" display="block">
-        {anime.copyright}
+        {copyright}
       </Typography>
       <Typography
         variant="h5"
@@ -31,8 +33,14 @@ export default function Anime() {
         className={classes.title}
         noWrap
       >
-        {anime.title}
+        {title}
       </Typography>
     </>
   );
 }
+
+Anime.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  copyright: PropTypes.string.isRequired,
+};
