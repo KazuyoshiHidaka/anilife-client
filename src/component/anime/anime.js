@@ -1,30 +1,21 @@
-import React from "react";
-import { makeStyles, Typography } from "@material-ui/core";
+import React from 'react';
+import {makeStyles, Typography} from '@material-ui/core';
 
-// SAMPLE DATA
-const anime = {
+const useStyles = makeStyles((theme) => ({
   image: {
-    src: "sample.jpg"
-  },
-  title: "鬼滅の刃",
-  copyright: "©吾峠呼世晴／集英社・アニプレックス・ufotable"
-};
-
-const useStyles = makeStyles(theme => ({
-  image: {
-    maxWidth: "100%"
+    maxWidth: '100%',
   },
   copyright: {
     color: theme.palette.text.disabled,
     fontSize: theme.typography.animeCopyright.fontSize,
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(3),
   },
   title: {
-    paddingBottom: theme.spacing(5)
-  }
+    paddingBottom: theme.spacing(5),
+  },
 }));
 
-export default () => {
+export default function Anime() {
   const classes = useStyles();
 
   return (
@@ -44,4 +35,4 @@ export default () => {
       </Typography>
     </>
   );
-};
+}
