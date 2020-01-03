@@ -1,19 +1,24 @@
-import React from "react";
-import "./App.css";
-import SearchAppBar from "./component/searchAppBar";
-import { ThemeProvider, Grid } from "@material-ui/core";
-import Theme from "./theme";
-import AnimesIndex from "./component/index/animesIndex";
+import React from 'react';
+import './App.css';
+import SearchAppBar from './component/searchAppBar';
+import {ThemeProvider} from '@material-ui/core';
+import Theme from './theme';
+import AnimesIndex from './component/index/animesIndex';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-export default () => {
+export default function App() {
   return (
     <ThemeProvider theme={Theme}>
-      <SearchAppBar />
-      <Grid container justify="center">
-        <Grid item xs={8} sm={4} md={3} lg={2}>
-          <AnimesIndex />
-        </Grid>
-      </Grid>
+      <Router>
+        <Switch>
+          <SearchAppBar />
+        </Switch>
+        <Switch>
+          <Route exact path="/">
+            <AnimesIndex />
+          </Route>
+        </Switch>
+      </Router>
     </ThemeProvider>
   );
-};
+}
