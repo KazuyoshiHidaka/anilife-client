@@ -6,7 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import {fade, makeStyles} from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import SearchIcon from '@material-ui/icons/Search';
+import {Switch, Route, useHistory} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchAppBar() {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <div className={classes.root}>
@@ -75,9 +78,15 @@ export default function SearchAppBar() {
             edge="start"
             className={classes.menuButton}
             color="inherit"
-            aria-label="open drawer"
           >
-            <MenuIcon />
+            <Switch>
+              <Route exact path="/">
+                <MenuIcon />
+              </Route>
+              <Route exact path="/animes/:id">
+                <ArrowBackIcon onClick={history.goBack} />
+              </Route>
+            </Switch>
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             AniLife
