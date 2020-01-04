@@ -1,6 +1,6 @@
 import React from 'react';
 import {Divider, Grid, makeStyles, ButtonBase} from '@material-ui/core';
-import Anime from '../anime';
+import Anime from '../share/animeCard';
 import {Link} from 'react-router-dom';
 import sampleAnime from '../../data/sampleAnime';
 
