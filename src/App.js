@@ -5,17 +5,21 @@ import {ThemeProvider} from '@material-ui/core';
 import Theme from './theme';
 import AnimesIndex from './component/index/animesIndex';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import ArrowBack from './component/icon/arrowBack';
+import Menu from './component/icon/menu';
 
 export default function App() {
   return (
     <ThemeProvider theme={Theme}>
       <Router>
         <Switch>
-          <SearchAppBar />
-        </Switch>
-        <Switch>
           <Route exact path="/">
+            <SearchAppBar icon={<Menu />} />
             <AnimesIndex />
+          </Route>
+          <Route exact path="/animes/:id">
+            <SearchAppBar icon={<ArrowBack />} />
+            {/* <AnimeDetail /> */}
           </Route>
         </Switch>
       </Router>

@@ -5,10 +5,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import {fade, makeStyles} from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import SearchIcon from '@material-ui/icons/Search';
-import {Switch, Route, useHistory} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,27 +64,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar(props) {
   const classes = useStyles();
-  const history = useHistory();
 
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar} position="sticky">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-          >
-            <Switch>
-              <Route exact path="/">
-                <MenuIcon />
-              </Route>
-              <Route exact path="/animes/:id">
-                <ArrowBackIcon onClick={history.goBack} />
-              </Route>
-            </Switch>
+          <IconButton edge="start" className={classes.menuButton}>
+            {props.icon}
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             AniLife
@@ -109,3 +95,7 @@ export default function SearchAppBar() {
     </div>
   );
 }
+
+SearchAppBar.propTypes = {
+  icon: PropTypes.element.isRequired,
+};
