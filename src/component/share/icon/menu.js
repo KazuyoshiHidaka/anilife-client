@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
-import SwipeableTemporaryDrawer from '../drawer/drawer';
 import SideBarContents from '../drawer/sideBarContents';
-import {makeStyles, IconButton} from '@material-ui/core';
+import {makeStyles, IconButton, SwipeableDrawer} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -13,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Menu() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const classes = useStyles();
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
   return (
     <>
       <IconButton
@@ -22,12 +22,16 @@ export default function Menu() {
       >
         <MenuIcon />
       </IconButton>
-      <SwipeableTemporaryDrawer
-        position="left"
-        contents={<SideBarContents />}
-        drawerOpen={drawerOpen}
-        setDrawerOpen={setDrawerOpen}
-      />
+      <SwipeableDrawer
+        anchor="left"
+        open={drawerOpen}
+        onOpen={() => setDrawerOpen(true)}
+        onClose={() => setDrawerOpen(false)}
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
+      >
+        <SideBarContents />
+      </SwipeableDrawer>
     </>
   );
 }
