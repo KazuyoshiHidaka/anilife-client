@@ -33,7 +33,7 @@ export default function SideBarContents() {
     },
     {
       name: '番組表',
-      url: '/programs',
+      url: '/timetable',
       icon: <ProgramIcon />,
     },
     {
