@@ -13,11 +13,11 @@ const useStyles = makeStyles((theme) => ({
   button: {
     '&:hover': {
       backgroundColor: theme.palette.common.white,
-      color: theme.palette.common.white,
+      color: theme.palette.action.active,
     },
   },
   link: {
-    'backgroundColor': theme.palette.common.black,
+    'backgroundColor': theme.palette.background.main,
     'display': 'block',
     'textDecoration': 'none',
     '&:hover': {
