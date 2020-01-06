@@ -1,6 +1,6 @@
 import React from 'react';
 import {Divider, Grid, makeStyles, ButtonBase} from '@material-ui/core';
-import Anime from '../anime';
+import Anime from '../share/animeCard';
 import {Link} from 'react-router-dom';
 import sampleAnime from '../../data/sampleAnime';
 
@@ -13,11 +13,11 @@ const useStyles = makeStyles((theme) => ({
   button: {
     '&:hover': {
       backgroundColor: theme.palette.common.white,
-      color: theme.palette.common.white,
+      color: theme.palette.action.active,
     },
   },
   link: {
-    'backgroundColor': theme.palette.common.black,
+    'backgroundColor': theme.palette.background.main,
     'display': 'block',
     'textDecoration': 'none',
     '&:hover': {
