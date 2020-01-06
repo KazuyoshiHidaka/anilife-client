@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import sampleAnime from '../../data/sampleAnime';
 import sampleTwitter from '../../data/sampleTweets';
 import Anime from '../share/animeCard';
@@ -57,6 +57,10 @@ export default function AnimeDetail() {
   const history = useHistory();
   const {id} = useParams();
   const currentAnime = sampleAnime.find((anime) => anime.id + '' === id);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  });
 
   return (
     <Grid container justify="center" className={classes.container}>
