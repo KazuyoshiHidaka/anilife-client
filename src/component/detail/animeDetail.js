@@ -66,6 +66,7 @@ export default function AnimeDetail() {
             <Anime {...currentAnime}></Anime>
           </Grid>
         </Grid>
+
         <Button
           className={classes.timeTableLink}
           fullWidth
@@ -73,6 +74,7 @@ export default function AnimeDetail() {
         >
           放送予定を見る
         </Button>
+
         <Typography variant="subtitle1" color="textPrimary">
           公式サイト
         </Typography>
@@ -83,9 +85,25 @@ export default function AnimeDetail() {
           href={currentAnime.offcial_url}
           className={classes.offcialLink}
           noWrap
+          paragraph
         >
           {currentAnime.offcial_url}
         </Typography>
+
+        <Typography variant="subtitle1" color="textPrimary">
+          公式Twitterアカウント
+        </Typography>
+        <Typography
+          display="block"
+          component="a"
+          variant="subtitle1"
+          href={currentAnime.twitter_url}
+          className={classes.offcialLink}
+          noWrap
+        >
+          {currentAnime.twitter_url}
+        </Typography>
+
         <div className={classes.twitterContentsArea}>
           <TwitterIcon className={classes.twitterIcon}></TwitterIcon>
           <div className={classes.tweetsArea}>
