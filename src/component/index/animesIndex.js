@@ -4,11 +4,9 @@ import Anime from '../share/animeCard';
 import {Link} from 'react-router-dom';
 import sampleAnime from '../../data/sampleAnime';
 
-const animes = [sampleAnime];
-
 const useStyles = makeStyles((theme) => ({
   animeButton: {
-    marginTop: theme.spacing(5),
+    marginTop: theme.spacing(6),
   },
   button: {
     '&:hover': {
@@ -31,7 +29,7 @@ export default function AnimesIndex() {
 
   return (
     <>
-      {animes.map((anime) => (
+      {sampleAnime.map((anime) => (
         <Grid key={anime.id} container justify="center">
           <Grid item xs={8} sm={4} md={3} lg={2}>
             <div className={classes.animeButton}>

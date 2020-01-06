@@ -1,4 +1,4 @@
-import {createMuiTheme} from '@material-ui/core';
+import {createMuiTheme, fade} from '@material-ui/core';
 import blue from '@material-ui/core/colors/blue';
 
 export default createMuiTheme({
@@ -6,6 +6,7 @@ export default createMuiTheme({
     MuiListItemIcon: {
       root: {
         color: 'inherit',
+        minWidth: '40px',
       },
     },
   },
@@ -15,6 +16,9 @@ export default createMuiTheme({
       main: '#121212',
     },
     primary: blue,
+    action: {
+      hover: fade('#fff', 0.2),
+    },
   },
   typography: {
     animeCopyright: {

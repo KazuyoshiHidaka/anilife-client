@@ -1,6 +1,38 @@
-export default {
-  id: 1,
-  image: 'sample.jpg',
-  title: '鬼滅の刃',
-  copyright: '©吾峠呼世晴／集英社・アニプレックス・ufotable',
-};
+export default [
+  {
+    id: 106625,
+    image: '/images/haikyuu4.jpg',
+    title: 'ハイキュー!! TO THE TOP',
+    copyright: '©古舘春一／集英社・「ハイキュー!!」製作委員会・MBS',
+    hashtag: '#hq_anime',
+    offcial_url: 'https://haikyu.jp/',
+    twitter_url: 'https://twitter.com/animehaikyu_com',
+  },
+  {
+    id: 104461,
+    image: '/images/heya_camp.jpg',
+    title: 'へやキャン△',
+    copyright: '©あfろ・芳文社／野外活動委員会',
+    hashtag: '#ゆるキャン',
+    offcial_url: 'https://yurucamp.jp/',
+    twitter_url: 'https://twitter.com/yurucamp_anime',
+  },
+  {
+    id: 104051,
+    image: '/images/magia_record.jpg',
+    title: 'マギアレコード 魔法少女まどか☆マギカ外伝',
+    copyright: '©Magica Quartet/Aniplex・Magia Record Anime Partners',
+    hashtag: '#マギレコ',
+    offcial_url: 'http://kimetsu.com/',
+    twitter_url: 'https://twitter.com/magireco',
+  },
+  {
+    id: 101922,
+    image: '/images/kimetsu.jpg',
+    title: '鬼滅の刃',
+    copyright: '©吾峠呼世晴／集英社・アニプレックス・ufotable',
+    hashtag: '#鬼滅',
+    offcial_url: 'https://anime.magireco.com/',
+    twitter_url: 'https://twitter.com/kimetsu_off',
+  },
+];

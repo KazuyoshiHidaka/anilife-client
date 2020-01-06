@@ -31,7 +31,6 @@ export default function Anime(props) {
         align="center"
         color="textPrimary"
         className={classes.title}
-        noWrap
       >
         {title}
       </Typography>
