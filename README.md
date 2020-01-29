@@ -1,7 +1,2 @@
-# AniLife
-
-- 今期放送しているアニメの情報
-- 一週間後までの、今期アニメの放送時間を見れる番組表
-- 放送時間に通知を受け取れる機能
-
-を実装予定の Web アプリを作っています。
+### 仕様変更後はこちら
+https://github.com/KazuyoshiHidaka/anilife-mobile
